@@ -27,3 +27,9 @@ Once the smoke test passes, install the lab repo:
     In [2]: hist(x, 100)
 
 You should see a histogram approximating a normal distribution.
+
+## Example script:
+
+Some data from the constrained random walk of the center of mass of the Lab molecular dynamics simulation is in data/. Once you have done the install steps above, to plot this data, run `./plot-cm-random-walk.py` in the root of this repository to generate the figure; open `figure/cm-random-walk.png` to view the figure.
+
+You *may* find that you need Python 2.7 installed.

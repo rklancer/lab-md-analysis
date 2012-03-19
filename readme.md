@@ -10,7 +10,15 @@ Unfortunately there are two hiccups in the installation process. It is necessary
     (script-md)$ pip install -r requirements.txt
     (script-md)$ pip install matplotlib
 
-## Smoke test:
+Once the smoke test passes, install the lab repo:
+
+    $ npm install
+
+    (optionally)
+
+    $ npm link <path to local installation of lab repo>
+
+## Matplotlib smoke test:
 
     (script-md)$ ipython --pylab
     ...

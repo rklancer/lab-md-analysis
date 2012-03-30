@@ -59,15 +59,22 @@ def plot_dist():
 
     plt.plot(epsilons, dists)
 
+    dists = map(lambda epsilon: eq_dist(epsilon, sigma, 0, 0), epsilons)
+    plt.plot(epsilons, dists)
+
     plt.xlim(epsilons[0], epsilons[99])
     plt.xlabel(r'Lennard-Jones $\epsilon$ parameter (eV)')
-    plt.ylim(0, dists[99]*1.1)
+    plt.ylim(0, 1.1*max(max(dists), 0.38))
     plt.ylabel("Equilibrium separation distance (nm)")
     plt.title("Equilibrium separation of 2 Lennard-Jones particles with charge +1 and -1\n" + r'(Plotted as a function of $\epsilon$ using $\sigma = 0.340$ nm)');
 
     (x, y) = (epsilon, eq_dist())
     plt.annotate(r'default $\epsilon$', xy=(x,y), xytext=(0.012, 0.22), 
         arrowprops=dict(facecolor='blue', shrink=0.05, frac=0.25, width=2, headwidth = 8))
+
+    (x, y) = (epsilon, eq_dist(epsilon, sigma, 0, 0))
+    plt.annotate(r'with no Coulomb forces', xy=(x,y), xytext=(0.012, 0.32), 
+        arrowprops=dict(facecolor='blue', shrink=0.05, frac=0.25, width=2, headwidth = 8))    
 
 plot_dist()
 plt.savefig('figures/lj-coulomb-equilibrium-distance', dpi=300)
